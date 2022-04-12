@@ -1,0 +1,23 @@
+<%- include("header") -%>
+  <body>
+    <div class="container-fluid">
+      <div class="box" id="heading">
+        <h1><%=day%></h1>
+      </div>
+      <div class="box">
+          <% for(var i=0;i<newItems.length;i++){ %>
+            <form class="item" action="/delete" method="post">
+              <div class="item">
+                <input type="checkbox" name="del" value="<%= newItems[i]._id %>" onChange="this.form.submit()">
+                <p> <%=newItems[i].name%> </p>
+              </div>
+            </form>
+          <% } %>
+          <form class="item items" action="/" method="post">
+            <input type="text" name="new_list_item" value="" placeholder="New item" autocomplete="off">
+            <button type="submit" class="" name="button">+</button>
+          </form>
+      </div>
+    </div>
+  </body>
+<%- include("footer") -%>
